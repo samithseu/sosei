@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <h1>Welcome to <code>sosei - សរសេរ</code>!</h1>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit eos
+    quisquam impedit ullam tenetur asperiores numquam, repellendus explicabo rem
+    blanditiis, consequatur veniam quod quis sit? Cum harum, adipisci ipsa neque
+    molestias commodi fuga qui, nihil alias, quaerat quibusdam eaque provident
+    praesentium exercitationem in. Neque perferendis quisquam saepe suscipit cum
+    veniam dicta magnam illum sunt quae est facilis voluptas cumque officia quas
+    optio, dolores et a consequatur eius ducimus exercitationem? Labore quos
+    fugiat cupiditate corrupti totam culpa velit, magni quas laborum accusantium
+    deserunt ipsam eveniet atque, quasi natus vero possimus, quam ipsum sapiente
+    veniam ut! Tenetur iusto necessitatibus consequuntur cupiditate provident?
+  </p>
+</Layout>
+
+<style scoped>
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm 2cm;
+  }
+  @layer styling {
+    h1 {
+      text-align: center;
+      color: black;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+      text-indent: 1.5cm;
+    }
+    code {
+      color: var(--color-primary);
+      font-family: monospace;
+    }
+  }
+</style>

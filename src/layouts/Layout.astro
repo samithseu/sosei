@@ -1,0 +1,29 @@
+---
+import "../assets/css/utils.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Welcome to sosei!" />
+    <meta
+      property="og:description"
+      content="A simple template where we can create printable paper using HTML & CSS."
+    />
+    <meta
+      name="description"
+      content="A simple template where we can create printable paper using HTML & CSS."
+    />
+    <title>Welcome to sosei!</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script is:inline src="/paged.polyfill.min.js"></script>
+<script is:inline src="/load_pagedjs.js"></script>
