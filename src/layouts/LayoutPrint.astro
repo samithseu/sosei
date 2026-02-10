@@ -1,6 +1,10 @@
 ---
+interface Props {
+  title?: string;
+}
 import "../assets/css/utils.css";
 import PrintButton from "../components/print/PrintButton.astro";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,7 +14,7 @@ import PrintButton from "../components/print/PrintButton.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>SoSei Print Document</title>
+    <title>{title ? `SoSei - សរសេរ | ${title}` : "SoSei - សរសេរ"}</title>
     <script is:inline>
       window.PagedConfig = { auto: false };
     </script>
