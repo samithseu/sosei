@@ -1,0 +1,22 @@
+---
+interface Props {
+  pageRange?: string;
+}
+
+const { pageRange } = Astro.props;
+---
+
+<div class="top-right" data-page-range={pageRange}>
+  <slot />
+</div>
+
+<style>
+  .top-right {
+    grid-area: right;
+    justify-self: end;
+    text-align: right;
+    /* Constrain to header bounds */
+    max-width: 100%;
+    overflow: hidden;
+  }
+</style>

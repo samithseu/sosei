@@ -1,0 +1,82 @@
+---
+import "../assets/css/utils.css";
+import PrintButton from "../components/print/PrintButton.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>SoSei Print Document</title>
+    <script is:inline>
+      window.PagedConfig = { auto: false };
+    </script>
+    <script is:inline src="/paged.polyfill.min.js"></script>
+    <script is:inline src="/paged-handlers.js"></script>
+  </head>
+  <body>
+    <!-- Running Header - Positioned via CSS running() -->
+    <slot name="header" />
+
+    <!-- Running Footer - Positioned via CSS running() -->
+    <slot name="footer" />
+
+    <!-- Main Content -->
+    <main class="print-content">
+      <slot />
+    </main>
+
+    <!-- Global Print Button -->
+    <PrintButton />
+
+    <!-- Print title handling -->
+    <script is:inline>
+      // Change title before and after printing
+      (function () {
+        const currentTitle = document.title;
+        window.addEventListener("beforeprint", () => {
+          document.title = "Printed doc using sosei!";
+        });
+        window.addEventListener("afterprint", () => {
+          document.title = currentTitle;
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    position: relative;
+  }
+
+  /* Page setup with running headers and footers */
+  @page {
+    size: A4 portrait;
+    margin: 2.5cm 2cm;
+    @top-center {
+      content: element(page-header);
+    }
+    @bottom-center {
+      content: element(page-footer);
+    }
+  }
+  html {
+    background-color: rgb(61, 61, 61);
+  }
+  .pagedjs_page {
+    margin-inline: auto;
+    box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    &:not(:last-child) {
+      margin-block-end: 1.5rem;
+    }
+  }
+  /* Ensure main content flows properly */
+  .print-content {
+    break-inside: auto;
+  }
+</style>

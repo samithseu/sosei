@@ -1,0 +1,22 @@
+---
+interface Props {
+  pageRange?: string;
+}
+
+const { pageRange } = Astro.props;
+---
+
+<span class="page-number" data-page-range={pageRange}></span>
+
+<style is:global>
+  .page-number {
+    display: inline;
+  }
+
+  /* After pagination, Paged.js will populate this */
+  .page-number {
+    &::after {
+      content: attr(data-page-number);
+    }
+  }
+</style>

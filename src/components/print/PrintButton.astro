@@ -1,0 +1,65 @@
+---
+// PrintButton.astro - Global print button for print layouts
+interface Props {
+  title?: string;
+}
+
+const { title = "Print" } = Astro.props;
+---
+
+<button
+  class="print-button"
+  onclick="window.print()"
+  title={title}
+  aria-label={title}
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <path
+        d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"
+      ></path>
+      <rect x="6" y="14" width="12" height="8" rx="1"></rect>
+    </g>
+  </svg>
+</button>
+
+<style>
+  .print-button {
+    --_dur: 150ms cubic-bezier(0, 0, 0.09, 0.96);
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1rem;
+    background-color: var(--color-primary, mediumslateblue);
+    border: 2px solid var(--color-primary, mediumslateblue);
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    border-radius: 50%;
+    transition: scale var(--_dur);
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .print-button:hover,
+  .print-button:active {
+    scale: 0.9;
+    background-color: hsl(
+      from var(--color-primary, mediumslateblue) h s calc(l - 5)
+    );
+  }
+
+  .print-button svg {
+    aspect-ratio: 1/1;
+    width: 1.2rem;
+    color: white;
+  }
+
+  /* Hide when printing */
+  @media print {
+    .print-button {
+      display: none;
+    }
+  }
+</style>

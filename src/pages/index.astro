@@ -1,44 +1,246 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import LayoutPrint from "../layouts/LayoutPrint.astro";
+import PageHeader from "../components/print/PageHeader.astro";
+import PageFooter from "../components/print/PageFooter.astro";
+import TopLeft from "../components/print/TopLeft.astro";
+import TopCenter from "../components/print/TopCenter.astro";
+import TopRight from "../components/print/TopRight.astro";
+import BottomLeft from "../components/print/BottomLeft.astro";
+import BottomCenter from "../components/print/BottomCenter.astro";
+import BottomRight from "../components/print/BottomRight.astro";
+import PageNumber from "../components/print/PageNumber.astro";
+
+// Page range examples
+const confidentialRange = "1-2";
+const draftRange = "1-";
 ---
 
-<Layout>
-  <h1>Welcome to <code>sosei - សរសេរ</code>!</h1>
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit eos
-    quisquam impedit ullam tenetur asperiores numquam, repellendus explicabo rem
-    blanditiis, consequatur veniam quod quis sit? Cum harum, adipisci ipsa neque
-    molestias commodi fuga qui, nihil alias, quaerat quibusdam eaque provident
-    praesentium exercitationem in. Neque perferendis quisquam saepe suscipit cum
-    veniam dicta magnam illum sunt quae est facilis voluptas cumque officia quas
-    optio, dolores et a consequatur eius ducimus exercitationem? Labore quos
-    fugiat cupiditate corrupti totam culpa velit, magni quas laborum accusantium
-    deserunt ipsam eveniet atque, quasi natus vero possimus, quam ipsum sapiente
-    veniam ut! Tenetur iusto necessitatibus consequuntur cupiditate provident?
-  </p>
-</Layout>
+<LayoutPrint>
+  <!-- Header: Appears on all pages -->
+  <PageHeader slot="header">
+    <TopLeft>
+      <span class="company-name">SoSei Documents</span>
+    </TopLeft>
+    <TopCenter>
+      <span class="document-title">Sample Document</span>
+    </TopCenter>
+    <TopRight pageRange={confidentialRange}>
+      <span class="confidential-badge">CONFIDENTIAL</span>
+    </TopRight>
+  </PageHeader>
 
-<style scoped>
-  @page {
-    size: A4 portrait;
-    margin: 1.5cm 2cm;
+  <!-- Footer: Appears on all pages -->
+  <PageFooter slot="footer">
+    <BottomLeft>
+      <span class="draft-notice" data-page-range={draftRange}
+        >DRAFT VERSION</span
+      >
+    </BottomLeft>
+    <BottomCenter>
+      <span class="page-info"
+        >Page <PageNumber /> of <span class="total-pages"></span></span
+      >
+    </BottomCenter>
+    <BottomRight>
+      <span class="date">{new Date().toLocaleDateString()}</span>
+    </BottomRight>
+  </PageFooter>
+
+  <!-- Main Content -->
+  <article class="document">
+    <h1>Print Components Demo</h1>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This document demonstrates the print component system for the SoSei
+        project. The header and footer components automatically appear on every
+        page, with support for page range restrictions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Features Demonstrated</h2>
+      <ul>
+        <li><strong>PageHeader</strong> - Running header on all pages</li>
+        <li><strong>PageFooter</strong> - Running footer on all pages</li>
+        <li>
+          <strong>TopLeft/TopCenter/TopRight</strong> - Header positioning
+        </li>
+        <li>
+          <strong>BottomLeft/BottomCenter/BottomRight</strong> - Footer positioning
+        </li>
+        <li><strong>PageNumber</strong> - Automatic page numbering</li>
+        <li>
+          <strong>Page Range Support</strong> - Content only appears on specified
+          pages
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Page Range Examples</h2>
+      <p>
+        The "CONFIDENTIAL" badge in the top right only appears on pages 1-2. The
+        "DRAFT VERSION" notice in the bottom left appears on all pages starting
+        from page 1.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </section>
+
+    <section>
+      <h2>Styling Guidelines</h2>
+      <p>
+        Each component has scoped CSS within its &lt;style&gt; tag. The
+        components use CSS Grid within PageHeader and PageFooter to ensure
+        positioning components stay within their designated areas. Content is
+        constrained with overflow handling to prevent breaking the layout.
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </section>
+
+    <section>
+      <h2>Multiple Pages</h2>
+      <p>
+        This content is designed to flow across multiple pages. Add more content
+        to see how the headers and footers repeat on each page, with the page
+        range restrictions being respected.
+      </p>
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+        explicabo.
+      </p>
+      <p>
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+        fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+        sequi nesciunt.
+      </p>
+      <p>
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit, sed quia non numquam eius modi tempora
+        incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+      </p>
+      <p>
+        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+        suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Implementation</h2>
+      <p>
+        The system uses Paged.js for pagination and CSS running elements for
+        headers/footers. The PageRangeVisibility handler processes elements with
+        data-page-range attributes after pagination is complete, hiding elements
+        that shouldn't appear on the current page.
+      </p>
+      <p>
+        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+        voluptas nulla pariatur?
+      </p>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        This demonstrates a complete print document system with Astro components
+        and Paged.js. The components provide a declarative way to define
+        headers, footers, and positioned content with automatic page range
+        support.
+      </p>
+    </section>
+  </article>
+</LayoutPrint>
+
+<style>
+  .document {
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
+    line-height: 1.6;
+    color: #333;
   }
-  @layer styling {
-    h1 {
-      text-align: center;
-      color: black;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: justify;
-      text-indent: 1.5cm;
-    }
-    code {
-      color: var(--color-primary);
-      font-family: monospace;
-    }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #000;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  ul {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  section {
+    break-inside: auto;
+  }
+
+  /* Scoped styles for header/footer content */
+  .company-name {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .document-title {
+    font-weight: 500;
+    color: #666;
+  }
+
+  .confidential-badge {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+  }
+
+  .draft-notice {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  .page-info {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .date {
+    font-size: 0.875rem;
+    color: #666;
   }
 </style>

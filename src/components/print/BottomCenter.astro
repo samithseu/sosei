@@ -1,0 +1,25 @@
+---
+interface Props {
+  pageRange?: string;
+}
+
+const { pageRange } = Astro.props;
+---
+
+<div
+  class="bottom-center"
+  data-page-range={pageRange}
+>
+  <slot />
+</div>
+
+<style>
+  .bottom-center {
+    grid-area: center;
+    justify-self: center;
+    text-align: center;
+    /* Constrain to footer bounds */
+    max-width: 100%;
+    overflow: hidden;
+  }
+</style>
