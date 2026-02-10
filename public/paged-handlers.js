@@ -29,11 +29,18 @@ class PageRangeVisibility extends Paged.Handler {
           // Hide element if not in range
           element.style.display = "none";
         }
+      });
 
-        // For page-number elements, set the actual page number
-        if (element.classList.contains("page-number")) {
-          element.setAttribute("data-page-number", pageNumber.toString());
-        }
+      // Set page number for all .page-number elements (with or without data-page-range)
+      const pageNumberElements = pageElement.querySelectorAll(".page-number");
+      pageNumberElements.forEach((element) => {
+        element.setAttribute("data-page-number", pageNumber.toString());
+      });
+
+      // Set total pages for all .total-pages elements
+      const totalPagesElements = pageElement.querySelectorAll(".total-pages");
+      totalPagesElements.forEach((element) => {
+        element.textContent = allPages.length.toString();
       });
     });
   }
