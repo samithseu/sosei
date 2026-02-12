@@ -57,21 +57,63 @@ const { title } = Astro.props;
     position: relative;
   }
 
-  /* Page setup with running headers and footers */
+  /* Page setup - No running elements, pure custom positioning */
   @page {
     size: A4 portrait;
     margin: 2.5cm 2cm;
-    @top-center {
-      content: element(page-header);
-    }
-    @bottom-center {
-      content: element(page-footer);
-    }
+    /* No @top-center or @bottom-center - using custom HTML instead */
   }
+
+  /* Hide Paged.js default margin boxes to prevent style overrides */
+  .pagedjs_margin-top,
+  .pagedjs_margin-bottom,
+  .pagedjs_margin-top-left-corner-holder,
+  .pagedjs_margin-top-right-corner-holder,
+  .pagedjs_margin-bottom-left-corner-holder,
+  .pagedjs_margin-bottom-right-corner-holder {
+    display: none !important;
+  }
+
+  /* Custom header/footer positioning - content area only, leaving corners free */
+  .custom-header,
+  .custom-footer {
+    position: absolute;
+    left: 2cm; /* Start at left margin (leaves 2cm for corner) */
+    right: 2cm; /* End at right margin (leaves 2cm for corner) */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    z-index: 100;
+    pointer-events: none; /* Allow clicks to pass through to content */
+    box-sizing: border-box;
+  }
+
+  .custom-header {
+    top: 0;
+    height: 2.5cm; /* Match @page margin-top exactly */
+  }
+
+  .custom-footer {
+    bottom: 0;
+    height: 2cm; /* Match @page margin-bottom exactly */
+  }
+
+  /* Enable pointer events on content inside header/footer */
+  .custom-header > *,
+  .custom-footer > * {
+    pointer-events: auto;
+  }
+
+  /* Ensure page box has relative positioning for absolute children */
+  .pagedjs_pagebox {
+    position: relative !important;
+  }
+
   html {
     background-color: rgb(61, 61, 61);
   }
+
   .pagedjs_page {
+    position: relative;
     margin-inline: auto;
     box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -79,6 +121,7 @@ const { title } = Astro.props;
       margin-block-end: 1.5rem;
     }
   }
+
   /* Ensure main content flows properly */
   .print-content {
     break-inside: auto;

@@ -6,14 +6,12 @@ interface Props {
 const { pageRange } = Astro.props;
 ---
 
-<div class="page-footer" data-page-range={pageRange}>
+<div class="page-footer custom-footer" data-page-range={pageRange}>
   <slot />
 </div>
 
 <style>
   .page-footer {
-    position: running(page-footer);
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "left center right";
@@ -22,13 +20,6 @@ const { pageRange } = Astro.props;
     border-top: 1px solid #e5e5e5;
     font-size: 0.875rem;
     color: #666;
-  }
-
-  /* Ensure children stay within grid areas */
-  .page-footer :global(*) {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    box-sizing: border-box;
   }
 </style>
