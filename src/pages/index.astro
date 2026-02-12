@@ -51,7 +51,7 @@ import PageNumber from "../components/print/PageNumber.astro";
         href="https://github.com/samithseu/sosei"
         class="github-link"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         View on GitHub →
       </a>
@@ -60,7 +60,7 @@ import PageNumber from "../components/print/PageNumber.astro";
     <section>
       <h2>Overview</h2>
       <p>
-        This document demonstrates the print component system for the SoSei
+        This document demonstrates the print component system for the <code>SoSei</code>
         project. The header and footer components automatically appear on every
         page, with support for page range restrictions.
       </p>
@@ -68,57 +68,44 @@ import PageNumber from "../components/print/PageNumber.astro";
 
     <section>
       <h2>Features</h2>
-      <p>
-        The SoSei template provides a complete set of components for creating
-        professional printable documents. Each component is designed to work
-        seamlessly with Paged.js for automatic pagination.
-      </p>
       <ul>
-        <li>
-          <strong>PageHeader & PageFooter</strong> - Running headers and footers
-          that appear on every page automatically
-        </li>
-        <li>
-          <strong>Positioning Components</strong> - TopLeft, TopCenter, TopRight
-          for headers and BottomLeft, BottomCenter, BottomRight for footers
-        </li>
-        <li>
-          <strong>PageNumber</strong> - Automatic page numbering with
-          current/total page display
-        </li>
-        <li>
-          <strong>Page Range Support</strong> - Show or hide content on specific
-          page ranges
-        </li>
+        <li><strong><code>PageHeader</code> & <code>PageFooter</code></strong> - Running headers and footers on every page</li>
+        <li><strong>Positioning Components</strong> - <code>TopLeft</code>, <code>TopCenter</code>, <code>TopRight</code>, <code>BottomLeft</code>, <code>BottomCenter</code>, <code>BottomRight</code></li>
+        <li><strong><code>PageNumber</code></strong> - Automatic page numbering with current/total display</li>
       </ul>
     </section>
 
     <section>
       <h2>Quick Start</h2>
-      <p>
-        Getting started with SoSei is straightforward. Create a new page using
-        the LayoutPrint component and add your content:
-      </p>
-      <pre><code>---
-import LayoutPrint from "../layouts/LayoutPrint.astro";
-import PageHeader from "../components/print/PageHeader.astro";
-import TopLeft from "../components/print/TopLeft.astro";
----
+      <p>Get started in minutes. Clone the repository and edit <code>src/pages/index.astro</code> to create your printable document.</p>
 
-&lt;LayoutPrint title="My Document"&gt;
-  &lt;PageHeader slot="header"&gt;
-    &lt;TopLeft&gt;My Company&lt;/TopLeft&gt;
-  &lt;/PageHeader&gt;
-  
-  &lt;h1&gt;My Document Title&lt;/h1&gt;
-  &lt;p&gt;Your content here...&lt;/p&gt;
-&lt;/LayoutPrint&gt;</code></pre>
+      <div class="quick-start-flow">
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <div class="step-content">
+            <div class="step-header">
+              <h4>Clone</h4>
+              <button class="copy-btn" data-copy="git clone https://github.com/samithseu/sosei.git" title="Copy to clipboard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              </button>
+            </div>
+            <pre><code>git clone https://github.com/samithseu/sosei.git</code></pre>
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <div class="step-content">
+            <h4>Edit</h4>
+            <p class="step-desc">Open <code>src/pages/index.astro</code> and customize the content. Then press Ctrl+P to print to PDF.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
       <h2>Customization</h2>
       <p>
-        SoSei is built with customization in mind. All components use scoped CSS,
+        <code>SoSei</code> is built with customization in mind. All components use scoped CSS,
         making it easy to override styles for your specific needs. Modify colors,
         fonts, spacing, and layout through CSS custom properties or component
         styles.
@@ -127,6 +114,15 @@ import TopLeft from "../components/print/TopLeft.astro";
         The template uses modern CSS features including Grid, Flexbox, and
         logical properties. This ensures your documents look great both on
         screen and in print.
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Structure</h2>
+      <p>
+        The template follows a clean organization pattern with components, layouts,
+        and pages separated into logical directories. All print-specific components
+        are located in <code>src/components/print/</code> for easy discovery and reuse.
       </p>
     </section>
 
@@ -144,58 +140,46 @@ import TopLeft from "../components/print/TopLeft.astro";
 
 <style>
   .document {
-    font-family:
-      system-ui,
-      -apple-system,
-      sans-serif;
-    line-height: 1.6;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
     color: #333;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #1a1a1a;
     text-align: center;
     letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
     color: #2d2d2d;
-    position: relative;
-    padding-bottom: 0.5rem;
   }
 
-  h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 5ch;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      var(--color-primary) 0%,
-      transparent 100%
-    );
+  h3, h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: #444;
   }
 
   .intro-header {
     text-align: center;
-    padding: 3rem 2rem;
-    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid #e5e5e5;
   }
 
   .intro-header h1 {
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     background: linear-gradient(135deg, #1a1a1a 0%, var(--color-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -206,9 +190,9 @@ import TopLeft from "../components/print/TopLeft.astro";
   .tagline {
     text-align: center;
     text-wrap: balance;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #666;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 400;
   }
 
@@ -229,32 +213,149 @@ import TopLeft from "../components/print/TopLeft.astro";
   }
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     text-align: justify;
   }
 
   ul {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
   }
 
   li {
+    margin-bottom: 0.35rem;
+  }
+
+  .quick-start-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0.75rem 0;
+    position: relative;
+  }
+
+  .quick-start-flow::before {
+    content: "";
+    position: absolute;
+    left: 0.875rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      mediumslateblue 0%,
+      mediumslateblue calc(100% - 2rem),
+      transparent calc(100% - 2rem)
+    );
+  }
+
+  .step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    position: relative;
+    background: transparent;
+    border: none;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: mediumslateblue;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .step-content {
+    flex: 1;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
+  }
+
+  .step-content h4 {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    background: mediumslateblue;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background-color 0.2s;
+  }
+
+  .step-content:hover .copy-btn {
+    opacity: 0.9;
+  }
+
+  .copy-btn:hover {
+    opacity: 1 !important;
+  }
+
+  .copy-btn.copied {
+    opacity: 1 !important;
+    background: #22c55e;
+  }
+
+  .step-card pre {
+    margin: 0;
+    padding: 0.5rem 0.625rem;
+    font-size: 0.8125rem;
+    background: white;
+    border-left: 2px solid mediumslateblue;
+    border-radius: 0;
+    line-height: 1.4;
+  }
+
+  .step-card .step-desc {
+    font-size: 0.8125rem;
+    margin: 0;
+    text-align: left;
   }
 
   pre {
     background-color: #f5f5f5;
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 0.375rem;
     overflow-x: auto;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
   }
 
-  code {
+  :not(pre) > code {
     font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-    color: #333;
+    background-color: rgba(147, 112, 219, 0.1);
+    color: mediumslateblue;
+    padding: 0.15em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
   }
 
   section {
@@ -302,4 +403,29 @@ import TopLeft from "../components/print/TopLeft.astro";
   // getting current date for footer
   document.querySelector("#footer-date").innerText =
     new Date().toLocaleDateString();
+
+  // Copy button functionality - use event delegation
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    e.preventDefault();
+    const text = btn.dataset.copy;
+
+    try {
+      await navigator.clipboard.writeText(text);
+
+      // Show checkmark icon
+      const originalIcon = btn.innerHTML;
+      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      btn.classList.add('copied');
+
+      setTimeout(() => {
+        btn.innerHTML = originalIcon;
+        btn.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  });
 </script>

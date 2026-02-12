@@ -5,7 +5,19 @@
   --font-family: Inter, "Kantumruy Pro", system-ui, sans-serif;
 }
 
-@layer reset;
+@layer reset, styling;
+
+@layer styling {
+  :not(pre) > code {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    background-color: rgba(147, 112, 219, 0.1);
+    color: mediumslateblue;
+    padding: 0.15em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+  }
+}
+
 @layer reset {
   *,
   ::after,
