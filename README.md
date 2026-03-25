@@ -1,6 +1,6 @@
 # SoSei
 
-SoSei - សរសេរ is a simple template to create printable documents using HTML & CSS with [Paged.js](https://pagedjs.org/).
+SoSei - សរសេរ is a simple template to create PDFs using HTML & CSS with [Paged.js](https://pagedjs.org/).
 
 ## Quick Start
 
@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Then open `src/pages/index.astro` and start editing to create your printable document.
+Then open `src/pages/index.astro` and start editing to create your PDF.
 
 ## Features
 

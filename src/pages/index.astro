@@ -45,7 +45,7 @@ import PageNumber from "../components/print/PageNumber.astro";
     <header class="intro-header">
       <h1>SoSei - សរសេរ</h1>
       <p class="tagline">
-        A template for creating beautiful printable documents with HTML & CSS
+        A template for creating beautiful PDFs with HTML & CSS
       </p>
       <a
         href="https://github.com/samithseu/sosei"
@@ -60,24 +60,42 @@ import PageNumber from "../components/print/PageNumber.astro";
     <section>
       <h2>Overview</h2>
       <p>
-        This document demonstrates the print component system for the <code>SoSei</code>
-        project. The header and footer components automatically appear on every
-        page, with support for page range restrictions.
+        This document demonstrates the print component system for the <code
+          >SoSei</code
+        >
+        project. The header and footer components automatically appear on every page,
+        with support for page range restrictions.
       </p>
     </section>
 
     <section>
       <h2>Features</h2>
       <ul>
-        <li><strong><code>PageHeader</code> & <code>PageFooter</code></strong> - Running headers and footers on every page</li>
-        <li><strong>Positioning Components</strong> - <code>TopLeft</code>, <code>TopCenter</code>, <code>TopRight</code>, <code>BottomLeft</code>, <code>BottomCenter</code>, <code>BottomRight</code></li>
-        <li><strong><code>PageNumber</code></strong> - Automatic page numbering with current/total display</li>
+        <li>
+          <strong><code>PageHeader</code> & <code>PageFooter</code></strong> - Running
+          headers and footers on every page
+        </li>
+        <li>
+          <strong>Positioning Components</strong> - <code>TopLeft</code>, <code
+            >TopCenter</code
+          >, <code>TopRight</code>, <code>BottomLeft</code>, <code
+            >BottomCenter</code
+          >, <code>BottomRight</code>
+        </li>
+        <li>
+          <strong><code>PageNumber</code></strong> - Automatic page numbering with
+          current/total display
+        </li>
       </ul>
     </section>
 
     <section>
       <h2>Quick Start</h2>
-      <p>Get started in minutes. Clone the repository and edit <code>src/pages/index.astro</code> to create your printable document.</p>
+      <p>
+        Get started in minutes. Clone the repository and edit <code
+          >src/pages/index.astro</code
+        > to create your PDF.
+      </p>
 
       <div class="quick-start-flow">
         <div class="step-card">
@@ -85,8 +103,26 @@ import PageNumber from "../components/print/PageNumber.astro";
           <div class="step-content">
             <div class="step-header">
               <h4>Clone</h4>
-              <button class="copy-btn" data-copy="git clone https://github.com/samithseu/sosei.git" title="Copy to clipboard">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <button
+                class="copy-btn"
+                data-copy="git clone https://github.com/samithseu/sosei.git"
+                title="Copy to clipboard"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><rect width="14" height="14" x="8" y="8" rx="2" ry="2"
+                  ></rect><path
+                    d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                  ></path></svg
+                >
               </button>
             </div>
             <pre><code>git clone https://github.com/samithseu/sosei.git</code></pre>
@@ -96,7 +132,10 @@ import PageNumber from "../components/print/PageNumber.astro";
           <span class="step-number">2</span>
           <div class="step-content">
             <h4>Edit</h4>
-            <p class="step-desc">Open <code>src/pages/index.astro</code> and customize the content. Then press Ctrl+P to print to PDF.</p>
+            <p class="step-desc">
+              Open <code>src/pages/index.astro</code> and customize the content. Then
+              press Ctrl+P to print to PDF.
+            </p>
           </div>
         </div>
       </div>
@@ -105,9 +144,9 @@ import PageNumber from "../components/print/PageNumber.astro";
     <section>
       <h2>Customization</h2>
       <p>
-        <code>SoSei</code> is built with customization in mind. All components use scoped CSS,
-        making it easy to override styles for your specific needs. Modify colors,
-        fonts, spacing, and layout through CSS custom properties or component
+        <code>SoSei</code> is built with customization in mind. All components use
+        scoped CSS, making it easy to override styles for your specific needs. Modify
+        colors, fonts, spacing, and layout through CSS custom properties or component
         styles.
       </p>
       <p>
@@ -120,19 +159,21 @@ import PageNumber from "../components/print/PageNumber.astro";
     <section>
       <h2>Project Structure</h2>
       <p>
-        The template follows a clean organization pattern with components, layouts,
-        and pages separated into logical directories. All print-specific components
-        are located in <code>src/components/print/</code> for easy discovery and reuse.
+        The template follows a clean organization pattern with components,
+        layouts, and pages separated into logical directories. All
+        print-specific components are located in <code
+          >src/components/print/</code
+        > for easy discovery and reuse.
       </p>
     </section>
 
     <section>
       <h2>Next Steps</h2>
       <p>
-        Ready to create your own printable documents? Start by exploring the
-        example components in this template, then customize them to match your
-        brand and requirements. Check out the GitHub repository for more
-        examples and documentation.
+        Ready to create your own PDFs? Start by exploring the example components
+        in this template, then customize them to match your brand and
+        requirements. Check out the GitHub repository for more examples and
+        documentation.
       </p>
     </section>
   </article>
@@ -140,7 +181,10 @@ import PageNumber from "../components/print/PageNumber.astro";
 
 <style>
   .document {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
     line-height: 1.5;
     color: #333;
   }
@@ -162,7 +206,8 @@ import PageNumber from "../components/print/PageNumber.astro";
     color: #2d2d2d;
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     font-size: 0.875rem;
     font-weight: 600;
     margin: 0 0 0.25rem 0;
@@ -307,7 +352,9 @@ import PageNumber from "../components/print/PageNumber.astro";
     border-radius: 0.25rem;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.2s, background-color 0.2s;
+    transition:
+      opacity 0.2s,
+      background-color 0.2s;
   }
 
   .step-content:hover .copy-btn {
@@ -405,8 +452,8 @@ import PageNumber from "../components/print/PageNumber.astro";
     new Date().toLocaleDateString();
 
   // Copy button functionality - use event delegation
-  document.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.copy-btn');
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest(".copy-btn");
     if (!btn) return;
 
     e.preventDefault();
@@ -417,15 +464,16 @@ import PageNumber from "../components/print/PageNumber.astro";
 
       // Show checkmark icon
       const originalIcon = btn.innerHTML;
-      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-      btn.classList.add('copied');
+      btn.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      btn.classList.add("copied");
 
       setTimeout(() => {
         btn.innerHTML = originalIcon;
-        btn.classList.remove('copied');
+        btn.classList.remove("copied");
       }, 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
     }
   });
 </script>
